@@ -92,8 +92,8 @@ public class MisSpellActionThread implements Runnable {
             input = new Scanner(file); //makes the input a scanner with a file
             while(input.hasNextLine()){ //while there are lines in the file
                 String line = input.nextLine();
-                String[] words = line.split("//s+");
-                for(String word : words){
+                String[] words = line.split("//s+");//split the string into wordlets
+                for(String word : words){//for word in the string
                     boolean isCorrect = checkWord(word, theDictionary);
                     Wordlet wordlet = new Wordlet(word, isCorrect);
                     myLines.addWordlet(wordlet);

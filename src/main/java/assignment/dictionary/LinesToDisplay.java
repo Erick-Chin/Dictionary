@@ -18,24 +18,22 @@ public class LinesToDisplay {
      * Constructor for objects of class LinesToDisplay
      */
     public LinesToDisplay() {
-        //ADD CODE FOR THE CONSTRUCTOR
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
-        
+        lines = new AList[LINES];
+        for(int i = 0; i<LINES; i++){
+            lines[i] = new AList<Wordlet>();
+        }
+    } //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
+
+//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
+
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-    }
 
     /**
      * Add a new wordlet to the current line.
      *
      */
     public void addWordlet(Wordlet w) {
-        //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
 
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
-       
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
 
     /**
