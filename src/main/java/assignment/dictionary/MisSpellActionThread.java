@@ -73,10 +73,11 @@ public class MisSpellActionThread implements Runnable {
                     if(segments.length == 2){
                         String key = segments[0];//first segment becomes the key
                         String value = segments[1];//second segment becomes the value
-                        theDictionary.add(key, value);
+                        theDictionary.add(key, value);//needs to use put to insert the key and value into the hash
                     }
             }
-
+            input.close();
+            dictionaryLoaded = true;
         } catch (IOException e) {
             System.out.println("There was an error in reading or opening the file: " + theFileName);
             System.out.println(e.getMessage());
@@ -121,13 +122,7 @@ public class MisSpellActionThread implements Runnable {
     public boolean checkWord(String word, DictionaryInterface<String, String> theDictionary) {
         boolean result = false;
 
-        // ADD CODE HERE
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        
-
-
-
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        result = theDictionary.contains(word);
 
         return result;
 

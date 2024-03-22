@@ -22,6 +22,7 @@ public class LinesToDisplay {
         for(int i = 0; i<LINES; i++){
             lines[i] = new AList<Wordlet>();
         }
+        currentLine = 0;
     }
     /**
      * Add a new wordlet to the current line.
@@ -39,16 +40,14 @@ public class LinesToDisplay {
      *
      */
     public void nextLine() {
-        /*
-        if(currentLine >= LINES) {
-            for (int i = 0; i < LINES; i++) {
+        if(currentLine >= LINES) {//for loop while there are more lines
+            for (int i = 1; i < LINES; i++) {
                 lines[i - 1] = lines[i];
             }
-
             lines[LINES -1] = new AList<Wordlet>();
             currentLine = LINES -1;
         }
-*/ //this shit doesn't work im going to kms
+
     }
     public int getCurrentLine(){
         return currentLine;
