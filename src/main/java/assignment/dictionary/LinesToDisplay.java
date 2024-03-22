@@ -22,18 +22,15 @@ public class LinesToDisplay {
         for(int i = 0; i<LINES; i++){
             lines[i] = new AList<Wordlet>();
         }
-    } //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
-
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
+    }
     /**
      * Add a new wordlet to the current line.
      *
      */
     public void addWordlet(Wordlet w) {
-
+        if(w != null){
+            lines[currentLine].add(w);//adding the current line to the wordlet AList
+        }
     }
 
     /**
