@@ -45,12 +45,12 @@ public class MisSpellActionThread implements Runnable {
 
         Platform.runLater(() -> {
             if (dictionaryLoaded) {
-               controller.SetMsg("The Dictionary has been loaded"); 
+               controller.SetMsg("The Dictionary has been loaded");
             } else {
-               controller.SetMsg("No Dictionary is loaded"); 
+               controller.SetMsg("No Dictionary is loaded");
             }
         });
-        
+
         checkWords(textFileName, myDictionary);
 
     }
@@ -70,7 +70,7 @@ public class MisSpellActionThread implements Runnable {
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-         
+
 
 
         } catch (IOException e) {
@@ -88,14 +88,20 @@ public class MisSpellActionThread implements Runnable {
     public void checkWords(String theFileName, DictionaryInterface<String, String> theDictionary) {
         Scanner input;
         try {
- 
-// ADD CODE HERE
-// >>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
+            File file = new File(theFileName); //sets a file to the file given
+            input = new Scanner(file); //makes the input a scanner with a file
+            while(input.hasNextLine()){ //while there are lines in the file
+                String line = input.nextLine();
+                String[] words = line.split("//s+");
+                for(String word : words){
+                    boolean isCorrect = checkWord(word, theDictionary);
+                    Wordlet wordlet = new Wordlet(word, isCorrect);
+                    myLines.addWordlet(wordlet);
+                }
+                showLines(myLines);//showing the lines that were checked
+                myLines.nextLine();//goes to the next line in the for loop
+            }
+            input.close();
 
         } catch (IOException e) {
             System.out.println("There was an error in reading or opening the file: " + theFileName);
