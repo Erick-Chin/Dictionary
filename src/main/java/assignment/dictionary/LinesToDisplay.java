@@ -39,13 +39,17 @@ public class LinesToDisplay {
      *
      */
     public void nextLine() {
-        //ADD CODE TO HANDLE THE NEXT LINE
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
+        /*
+        if(currentLine >= LINES) {
+            for (int i = 0; i < LINES; i++) {
+                lines[i - 1] = lines[i];
+            }
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            lines[LINES -1] = new AList<Wordlet>();
+            currentLine = LINES -1;
+        }
+*/ //this shit doesn't work im going to kms
     }
-
-      
     public int getCurrentLine(){
         return currentLine;
     }

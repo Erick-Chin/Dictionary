@@ -65,13 +65,17 @@ public class MisSpellActionThread implements Runnable {
     public void loadDictionary(String theFileName, DictionaryInterface<String, String> theDictionary) {
         Scanner input;
         try {
-// ADD CODE HERE
-// >>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
+            File file = new File(theFileName);
+            input = new Scanner(file);
+            while(input.hasNextLine()){
+                String line = input.nextLine();
+                String[] segments = line.split("\\s+", 2);//split the line into two segments
+                    if(segments.length == 2){
+                        String key = segments[0];//first segment becomes the key
+                        String value = segments[1];//second segment becomes the value
+                        theDictionary.add(key, value);
+                    }
+            }
 
         } catch (IOException e) {
             System.out.println("There was an error in reading or opening the file: " + theFileName);
